@@ -119,22 +119,3 @@ dependencies {
   "ksp"(libs.androidx.room.compiler)
   "ksp"(libs.moshi.kotlin.codegen)
 }
-
-tasks.register("copyApk") {
-    doLast {
-        val buildApk = file("build/outputs/apk/debug/app-debug.apk")
-        if (buildApk.exists()) {
-            val dest1 = file("app-debug.apk")
-            val destDir2 = file("../APK_DOWNLOAD")
-            destDir2.mkdirs()
-            val dest2 = file("../APK_DOWNLOAD/app-debug.apk")
-            buildApk.copyTo(dest1, overwrite = true)
-            buildApk.copyTo(dest2, overwrite = true)
-            println("Successfully copied APK to ${dest1.absolutePath} and ${dest2.absolutePath}")
-            val sizeMb = buildApk.length() / (1024.0 * 1024.0)
-            println("APK Size: ${"%.2f".format(sizeMb)} MB")
-        } else {
-            throw GradleException("Compiled APK not found at expected location: ${buildApk.absolutePath}")
-        }
-    }
-}
