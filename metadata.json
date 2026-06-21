@@ -1,0 +1,6 @@
+{
+  "name": "Nuevo Tech One HRMS",
+  "description": "Enterprise Human Resource Management System for Nuevo Tech One",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
